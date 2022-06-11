@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Website\FrontendController;
 use Illuminate\Support\Facades\Route;
@@ -33,4 +34,6 @@ Route::get('/contact', [FrontendController::class,'contact'])->name('website.con
 // Admin Panel Routes
 Route::group(['as' => 'admin.','prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
+
+    Route::resource('categories',CategoryController::class);
 });
