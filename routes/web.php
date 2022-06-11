@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Website\FrontendController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// Front End Routes
+Route::get('/', [FrontendController::class,'home'])->name('website.home');
+Route::get('/about', [FrontendController::class,'about'])->name('website.about');
+Route::get('/category', [FrontendController::class,'category'])->name('website.category');
+Route::get('/contact', [FrontendController::class,'contact'])->name('website.contact');
+
