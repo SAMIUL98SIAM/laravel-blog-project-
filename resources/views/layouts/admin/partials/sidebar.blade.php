@@ -32,6 +32,15 @@
               </p>
             </a>
           </li>
+          <li class="nav-header">Your Account</li>
+          <li class="nav-item mt-auto">
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
+              <i class="nav-icon fas fa-sign-out-alt"></i>
+              <p>
+                Logout
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
