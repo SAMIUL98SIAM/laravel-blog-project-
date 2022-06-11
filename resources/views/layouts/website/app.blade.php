@@ -57,5 +57,6 @@
     <script src="{{asset('website')}}/js/aos.js"></script>
 
     <script src="{{asset('website')}}/js/main.js"></script>
+    @stack('js')
     </body>
 </html>
