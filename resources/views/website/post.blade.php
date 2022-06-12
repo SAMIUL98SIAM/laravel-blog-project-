@@ -44,8 +44,6 @@
                     <a href="{{ route('website.post', ['slug' => $post->slug]) }}#disqus_thread">Comments</a>
 
                     <div id="disqus_thread"></div>
-
-
                 </div>
 
             </div>
@@ -86,7 +84,7 @@
                         <ul>
                             @foreach($posts as $post)
                             <li>
-                                <a href="">
+                                <a href="{{ route('website.post', ['slug' => $post->slug]) }}">
                                     <img src="{{ $post->image }}" alt="Image placeholder"
                                         class="mr-4">
                                     <div class="text">
@@ -141,7 +139,7 @@
 
             <div class="col-md-5 order-md-2">
                 @foreach($lastRelatedPost as $post)
-                <a href="single.html" class="hentry img-1 h-100 gradient"
+                <a href="{{ route('website.post', ['slug' => $post->slug]) }}" class="hentry img-1 h-100 gradient"
                     style="background-image: url('{{ $post->image }}');">
                     <span class="post-category text-white bg-danger">{{ $post->category->name }}</span>
                     <div class="text">
@@ -154,7 +152,7 @@
 
             <div class="col-md-7">
                 @foreach($firstRelatedPost as $post)
-                <a href="single.html" class="hentry img-2 v-height mb30 gradient"
+                <a href="{{ route('website.post', ['slug' => $post->slug]) }}" class="hentry img-2 v-height mb30 gradient"
                     style="background-image: url('{{ $post->image }}');">
                     <span class="post-category text-white bg-success">{{ $post->category->name }}</span>
                     <div class="text text-sm">

@@ -25,7 +25,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{ route('admin.dashboard') }}" class="nav-link {{ (request()->is('admin/dashboard')) ? 'active': '' }}">
+            <a href="{{ route('admin.dashboard') }}" class="nav-link {{ (request()->is('admin/dashboard*')) ? 'active': '' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -34,7 +34,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ route('admin.categories.index') }}" class="nav-link {{ (request()->is('admin/categories')) ? 'active': '' }}">
+            <a href="{{ route('admin.categories.index') }}" class="nav-link {{ (request()->is('admin/categories*')) ? 'active': '' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Categories
@@ -43,7 +43,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ route('admin.tags.index') }}" class="nav-link {{ (request()->is('admin/tags')) ? 'active': '' }}">
+            <a href="{{ route('admin.tags.index') }}" class="nav-link {{ (request()->is('admin/tags*')) ? 'active': '' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Tags
@@ -52,7 +52,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ route('admin.posts.index') }}" class="nav-link {{ (request()->is('admin/posts')) ? 'active': '' }}">
+            <a href="{{ route('admin.posts.index') }}" class="nav-link {{ (request()->is('admin/posts*')) ? 'active': '' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Posts
