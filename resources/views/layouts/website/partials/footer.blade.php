@@ -6,20 +6,18 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat reprehenderit magnam deleniti quasi saepe, consequatur atque sequi delectus dolore veritatis obcaecati quae, repellat eveniet omnis, voluptatem in. Soluta, eligendi, architecto.</p>
         </div>
         <div class="col-md-3 ml-auto">
-          <!-- <h3 class="footer-heading mb-4">Navigation</h3> -->
-          <ul class="list-unstyled float-left mr-5">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Advertise</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Subscribes</a></li>
-          </ul>
-          <ul class="list-unstyled float-left">
-            <li><a href="#">Travel</a></li>
-            <li><a href="#">Lifestyle</a></li>
-            <li><a href="#">Sports</a></li>
-            <li><a href="#">Nature</a></li>
-          </ul>
-        </div>
+            <!-- <h3 class="footer-heading mb-4">Navigation</h3> -->
+            <ul class="list-unstyled float-left mr-5">
+              <li><a href="{{ route('website.home') }}">Home</a></li>
+              <li><a href="{{ route('website.about') }}">About Us</a></li>
+              <li><a href="{{ route('website.contact') }}">Contact US</a></li>
+            </ul>
+            <ul class="list-unstyled float-left">
+              @foreach(App\Models\Category::latest()->get() as $category)
+                <li><a href="{{ route('website.category', ['slug' => $category->slug]) }}">{{ $category->name }}</a></li>
+              @endforeach
+            </ul>
+          </div>
         <div class="col-md-4">
 
 

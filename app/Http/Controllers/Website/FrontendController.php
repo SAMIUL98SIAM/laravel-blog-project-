@@ -46,21 +46,6 @@ class FrontendController extends Controller
         }
     }
 
-    public function tag($slug){
-        $tag = Tag::where('slug', $slug)->first();
-        if($tag){
-            $posts = $tag->posts()->orderBy('created_at', 'desc')->paginate(9);
-
-            return view('website.tag', compact(['tag', 'posts']));
-        }else {
-            return redirect()->route('website.home');
-        }
-    }
-
-    public function contact(){
-            return view('website.contact');
-    }
-
     public function post($slug){
         $post = Post::with('category', 'user')->where('slug', $slug)->first();
         $posts = Post::with('category', 'user')->inRandomOrder()->limit(3)->get();
@@ -80,6 +65,23 @@ class FrontendController extends Controller
             return redirect('/');
         }
     }
+
+    public function tag($slug){
+        $tag = Tag::where('slug', $slug)->first();
+        if($tag){
+            $posts = $tag->posts()->orderBy('created_at', 'desc')->paginate(9);
+
+            return view('website.tag', compact(['tag', 'posts']));
+        }else {
+            return redirect()->route('website.home');
+        }
+    }
+
+    public function contact(){
+            return view('website.contact');
+    }
+
+
 
     public function send_message(Request $request)
     {

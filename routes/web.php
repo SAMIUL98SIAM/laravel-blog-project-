@@ -29,7 +29,8 @@ Auth::routes();
 // Front End Routes
 Route::get('/', [FrontendController::class,'home'])->name('website.home');
 Route::get('/about', [FrontendController::class,'about'])->name('website.about');
-Route::get('/category', [FrontendController::class,'category'])->name('website.category');
+
+Route::get('/category/{slug}', [FrontendController::class,'category'])->name('website.category');
 
 Route::get('/tag/{slug}', [FrontendController::class,'tag'])->name('website.tag');
 
