@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Website\FrontendController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -36,4 +38,6 @@ Route::group(['as' => 'admin.','prefix' => 'admin', 'middleware' => ['auth']], f
     Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
 
     Route::resource('categories',CategoryController::class);
+    Route::resource('tags', TagController::class);
+    Route::resource('posts', PostController::class);
 });

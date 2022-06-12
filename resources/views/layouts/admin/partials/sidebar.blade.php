@@ -41,6 +41,25 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="{{ route('admin.tags.index') }}" class="nav-link {{ (request()->is('admin/tags')) ? 'active': '' }}">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Tags
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('admin.posts.index') }}" class="nav-link {{ (request()->is('admin/posts')) ? 'active': '' }}">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Posts
+              </p>
+            </a>
+          </li>
+
           <li class="nav-header">Your Account</li>
           <li class="nav-item mt-auto">
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
