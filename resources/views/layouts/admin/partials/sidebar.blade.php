@@ -69,6 +69,14 @@
               </p>
             </a>
           </li>
+
+          <li class="text-center mt-5">
+            <a href="{{ route('website.home') }}" class="btn btn-primary text-white" target="_blank">
+              <p class="mb-0">
+                View Website
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
