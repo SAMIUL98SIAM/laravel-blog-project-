@@ -3,7 +3,9 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Website\FrontendController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -49,4 +51,12 @@ Route::group(['as' => 'admin.','prefix' => 'admin', 'middleware' => ['auth']], f
     Route::resource('categories',CategoryController::class);
     Route::resource('tags', TagController::class);
     Route::resource('posts', PostController::class);
+    Route::resource('users', UserController::class);
+    Route::get('/profile', [UserController::class,'profile'])->name('users.profile');
+    Route::post('/profile',  [UserController::class,'profile_update'])->name('users.profile.update');
+
+
+    // setting
+    Route::get('/settings', [ SettingController::class,'edit'])->name('settings.index');
+    Route::post('/settings', [ SettingController::class,'update'])->name('settings.update');
 });

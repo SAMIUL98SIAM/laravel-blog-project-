@@ -61,7 +61,9 @@
             </form>
           </div>
           <div class="col-md-5">
-
+            @php
+            $setting = App\Models\Setting::first();
+            @endphp
             <div class="p-4 mb-3 bg-white">
               <p class="mb-0 font-weight-bold">Address</p>
               <p class="mb-4">{{ $setting->address }}</p>
