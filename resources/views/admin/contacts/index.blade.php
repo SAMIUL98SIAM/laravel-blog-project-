@@ -53,6 +53,8 @@
 
                                         <td class="d-flex">
                                             <a href="{{ route('admin.contacts.show', ['id' => $message->id]) }}" class="btn btn-sm btn-success mr-1"> <i class="fas fa-eye"></i> </a>
+
+                                            <a href="{{ route('admin.contacts.email', ['id' => $message->id]) }}" class="btn btn-sm btn-primary mr-1"> <i class="fas fa-comment-dots"></i> </a>
                                             <form action="{{ route('admin.contacts.destroy', ['id' => $message->id]) }}" class="mr-1" method="POST">
                                                 @method('DELETE')
                                                 @csrf

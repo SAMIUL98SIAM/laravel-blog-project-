@@ -65,4 +65,9 @@ Route::group(['as' => 'admin.','prefix' => 'admin', 'middleware' => ['auth']], f
     Route::get('/contacts', [ContactController::class,'index'])->name('contacts.index');
     Route::get('/contacts/show/{id}', [ContactController::class,'show'])->name('contacts.show');
     Route::delete('/contacts/delete/{id}', [ContactController::class,'destroy'])->name('contacts.destroy');
+
+
+    Route::get('/contact/email/{id}',[ContactController::class,'email'])->name('contacts.email');
+
+    Route::post('/contact/email/send/{id}',[ContactController::class,'email_send'])->name('contacts.email.send');
 });

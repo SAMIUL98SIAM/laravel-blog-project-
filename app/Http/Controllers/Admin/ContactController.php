@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Session;
+use App\Notifications\EmailNotification;
+use Illuminate\Support\Facades\Notification;
 
 class ContactController extends Controller
 {
@@ -57,4 +59,33 @@ class ContactController extends Controller
 
         return redirect()->back();
     }
+
+    public function email($id)
+    {
+        $userEmail = Contact::find($id);
+        return view('admin.contacts.email',compact('userEmail'));
+    }
+
+    public function email_send(Request $request,$id)
+    {
+        $userEmail = Contact::find($id);
+        $details = [
+            'greeting' => $request->greeting ,
+
+            'body' => $request->body ,
+
+            'actiontext' => $request->actiontext ,
+
+            'actionurl' => $request->actionurl ,
+
+            'endpart' => $request->endpart
+        ];
+
+        Notification::send($userEmail,new
+        EmailNotification($details));
+
+        Session::flash('success', 'Email Send Successfully!!');
+        return redirect()->back();
+    }
+
 }
