@@ -85,11 +85,12 @@ class FrontendController extends Controller
 
     public function send_message(Request $request)
     {
+
         $this->validate($request, [
             'name' => 'required|max:200',
             'email' => 'required|email|max:200',
             'subject' => 'required|max:255',
-            'message' => 'required|min:100',
+            'message' => 'required',
         ]);
 
         $contact = Contact::create($request->all());

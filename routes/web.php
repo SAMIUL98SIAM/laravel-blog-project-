@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\SettingController;
@@ -40,7 +41,7 @@ Route::get('/tag/{slug}', [FrontendController::class,'tag'])->name('website.tag'
 Route::get('/post/{slug}', [FrontendController::class,'post'])->name('website.post');
 
 Route::get('/contact', [FrontendController::class,'contact'])->name('website.contact');
-Route::post('/contact', [FrontendController::class,'send_message'])->name('website.contact');
+Route::post('/contact', [FrontendController::class,'send_message'])->name('website.contact.store');
 
 
 
@@ -59,4 +60,9 @@ Route::group(['as' => 'admin.','prefix' => 'admin', 'middleware' => ['auth']], f
     // setting
     Route::get('/settings', [ SettingController::class,'edit'])->name('settings.index');
     Route::post('/settings', [ SettingController::class,'update'])->name('settings.update');
+
+    // Contact message
+    Route::get('/contacts', [ContactController::class,'index'])->name('contacts.index');
+    Route::get('/contacts/show/{id}', [ContactController::class,'show'])->name('contacts.show');
+    Route::delete('/contacts/delete/{id}', [ContactController::class,'destroy'])->name('contacts.destroy');
 });

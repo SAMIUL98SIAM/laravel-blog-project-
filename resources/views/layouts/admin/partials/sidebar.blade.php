@@ -67,7 +67,7 @@
             <a href="{{ route('admin.users.index') }}" class="nav-link {{ (request()->is('admin/users*')) ? 'active': '' }}">
               <i class="nav-icon fas fa-user"></i>
               <p>
-                User
+                Users
               </p>
             </a>
           </li>
@@ -75,7 +75,15 @@
             <a href="{{ route('admin.settings.index') }}" class="nav-link {{ (request()->is('admin/settings*')) ? 'active': '' }}">
               <i class="nav-icon fas fa-cog"></i>
               <p>
-                Setting
+                Settings
+              </p>
+            </a>
+          </li>
+          <li class="nav-item mt-auto">
+            <a href="{{ route('admin.contacts.index') }}" class="nav-link {{ (request()->is('admin/contacts*')) ? 'active': '' }}">
+              <i class="nav-icon fas fa-cog"></i>
+              <p>
+                Messages
               </p>
             </a>
           </li>
