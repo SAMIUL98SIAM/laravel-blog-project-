@@ -1,3 +1,6 @@
+@php
+    $setting = App\Models\Setting::first();
+@endphp
 <header class="site-navbar" role="banner">
     <div class="container-fluid">
       <div class="row align-items-center">
@@ -10,7 +13,9 @@
         </div>
 
         <div class="col-4 site-logo">
-          <a href="index.html" class="text-black h2 mb-0">Mini Blog</a>
+
+          <img src="{{ asset($setting->site_logo) }}" style="height: 90px;width: 102px;"  alt="Logo" class="text-black h2 mb-0"
+          style="opacity: .8">
         </div>
 
         <div class="col-8 text-right">
